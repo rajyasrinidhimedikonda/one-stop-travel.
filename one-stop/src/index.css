@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.star {
+    visibility:hidden;
+    font-size:50px;
+    cursor:pointer;
+    accent-color: red;
+    color: #61a5c2;
+}
+.star:before {
+   content: "\2605";
+   position: absolute;
+   visibility:visible;
+}
+.star:checked:before {
+   content: "\2606";
+   position: absolute;
+}
