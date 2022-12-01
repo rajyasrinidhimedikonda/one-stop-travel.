@@ -1,8 +1,22 @@
 import React from 'react'
 import Navbar from './Navbar'
 import Footer from './Footer'
+import CartItems from './CartItems'
 
 const Checkout = () => {
+
+    //
+
+    const handleSubmitBilling = (event)=>{
+        event.preventDefault();
+
+       
+
+
+        
+    }
+
+  
   return (
 
     <>
@@ -11,7 +25,7 @@ const Checkout = () => {
 
     <div class="flex flex-col w-1/2 ml-10 mt-10 font-poppins">
         <h1 class="pb-3 ">Billing Details</h1>
-        <form action="" class="space-y-5 relative">
+        <form  onSubmit={handleSubmitBilling} action="" class="space-y-5 relative">
             <div class="flex flex-row space-x-3">
                 <input type="text" id="first_name"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-sm   block w-full p-2.5 "
@@ -66,7 +80,7 @@ const Checkout = () => {
         </form>
 
 
-        <div class=" relative flex flex-col mt-10 ">
+        <div class=" relative flex h-screen flex-col mt-10 ">
 
             <h1 class="pb-3">Payment Method</h1>
 
@@ -126,60 +140,7 @@ const Checkout = () => {
 
     </div>
 
-    <div class="flex flex-col w-1/2  mt-10 mr-2 h-screen p-3 bg-neutral-200 ">
-        <ul class="space-y-3 mt-2 space-x-2 ">
-            <li>
-
-                <a href="#"
-                    class="flex flex-col items-center bg-white border rounded-lg shadow-md md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-                    <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-l-lg"
-                        src="../images/backpack.webp" alt=""/>
-                    <div class="flex flex-col justify-between p-4 leading-normal">
-                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Japan Travel Kit
-                            <span class="pl-5 text-sm">$22.00</span>
-                        </h5>
-                        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise
-                            technology acquisitions of 2021 so far, in reverse chronological order.</p>
-                    </div>
-                </a>
-
-            </li>
-
-            <li>
-
-                <a href="#"
-                    class="flex flex-col items-center bg-white border rounded-lg shadow-md md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-                    <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-l-lg"
-                        src="../images/backpack.webp" alt=""/>
-                    <div class="flex flex-col justify-between p-4 leading-normal">
-                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Japan Travel Kit
-                            <span class="pl-5 text-sm">$22.00</span>
-                        </h5>
-                        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise
-                            technology acquisitions of 2021 so far, in reverse chronological order.</p>
-                    </div>
-                </a>
-
-            </li>
-            <li>
-
-                <a href="#"
-                    class="flex flex-col items-center bg-white border rounded-lg shadow-md md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-                    <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-l-lg"
-                        src="../images/backpack.webp" alt=""/>
-                    <div class="flex flex-col justify-between p-4 leading-normal">
-                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Japan Travel Kit
-                            <span class="pl-5 text-sm">$22.00</span>
-                        </h5>
-                        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise
-                            technology acquisitions of 2021 so far, in reverse chronological order.</p>
-                    </div>
-                </a>
-
-            </li>
-        </ul>
-
-    </div>
+    <CartItems/>
 
 </div>
 <Footer/>

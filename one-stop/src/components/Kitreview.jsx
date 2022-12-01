@@ -1,7 +1,6 @@
 import React from 'react'
 
 const Kitreview = ({title, body}) => {
-    console.log("Recieved: ", {title});
     return (
         <div className='flex flex-col bg-neutral-200 rounded-sm  p-5 w-2/3'>
             <h1 className='flex text-xl font-bold'>{title} <span className='flex flew-row'>

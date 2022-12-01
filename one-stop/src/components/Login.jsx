@@ -5,9 +5,6 @@ const Login = () => {
     const navigate = useNavigate();
     const handlesubmit = event =>{
         event.preventDefault();
-        console.log('====================================');
-        console.log(event);
-        console.log('====================================');
         navigate('/search');
     }
     return (

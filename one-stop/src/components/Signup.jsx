@@ -1,14 +1,58 @@
 import React from 'react'
-import {  useNavigate, Link } from 'react-router-dom'
+import { useState } from 'react';
+import { useNavigate, Link } from 'react-router-dom'
 
-const Signup = () => {
+const Signup =  () => {
     const navigate = useNavigate();
-    const handlesubmit = event =>{
+
+    const [errorMsg, setErrorMsg] = useState("")
+
+    const handlesubmit =  async (event) => {
         event.preventDefault();
-        console.log('====================================');
-        console.log(event);
-        console.log('====================================');
-        navigate('/search');
+
+        const fakeUsers = {
+            "hector@gmail.com": "1234"
+        }
+
+        const email = event.target[0].value
+        const pswd = event.target[1].value
+        console.log(email, 'email');
+        console.log(pswd, 'pswd');
+
+        const emailIsvalid = () => {
+            if (!email.includes('@')) {
+                setErrorMsg('invalid email')
+                return
+            }
+        }
+
+        const pswdIsValud = () =>{
+            if (pswd.length === 0 || pswd.length > 30){
+                setErrorMsg('invalid password')
+                return
+            }
+        }
+
+        const userExists = ()=>{
+            //check if email is in fake db of users
+            if(!Object.keys(fakeUsers).includes(email)){
+                setErrorMsg('user not found')
+                return
+            }
+            //if email is in fake db check if password matches
+            else if (fakeUsers[email] !== pswd){
+                setErrorMsg('incorrect email or pswd')
+                return
+            }
+        }
+
+        emailIsvalid();
+        pswdIsValud();
+        userExists();
+
+
+
+       await navigate('/search', {replace: true});
     }
     return (
         <div className='bg-neutral-100 text-slate-700'>
@@ -22,6 +66,9 @@ const Signup = () => {
                 <div className="flex flex-col justify-self-center backdrop-blur-xl bg-slate-200/50 minw-4/12 h-3/4 p-5  rounded-sm drop-shadow-sm  ">
                     <h1 class="poppins text-center text-4xl p-8 text-gray">One Stop Travel</h1>
                     <form onSubmit={handlesubmit} className="flex flex-col  items-center">
+                        {
+                            errorMsg && <h2>{errorMsg}</h2>
+                        }
                         <input placeholder="Email" type="text" className=" w-5/6 mb-4 pl-2 rounded-sm h-9" />
                         <input placeholder="Password" type="text" className="w-5/6 mb-4 pl-2 rounded-sm h-9" />
                         <button type="submit" className="text-center align-middle bg-turqse2 hover:bg-lblue3 text-white rounded-sm w-5/6 h-10  my-5">Sign Up</button>
