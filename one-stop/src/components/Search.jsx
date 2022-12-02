@@ -45,7 +45,7 @@ const Search = () => {
         });
     }
     return (
-        <body className='bg-neutral-100 w-full min-h-screen absolute'>
+        <body className=' w-full min-h-screen absolute'>
             <Navbar />
 
 
@@ -64,7 +64,7 @@ const Search = () => {
             <div className='flex flex-col m-10'>
                 {
                     resMsg && <div className='flex flex-col  mb-52'>
-                        <h1 class="text-center text-2xl p-5 pb-8">{resMsg}</h1>
+                        <h1 title='resMsg' class="text-center text-2xl p-5 pb-8">{resMsg}</h1>
                         <div className='grid grid-cols-4 grid-row-1 gap-8 flex flex-wrap min-h-1/3'>
                             {
                                 results && results.map((kit) => (

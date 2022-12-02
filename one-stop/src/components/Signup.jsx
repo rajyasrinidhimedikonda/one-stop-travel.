@@ -2,12 +2,12 @@ import React from 'react'
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom'
 
-const Signup =  () => {
+const Signup = () => {
     const navigate = useNavigate();
 
     const [errorMsg, setErrorMsg] = useState("")
 
-    const handlesubmit =  async (event) => {
+    const handlesubmit = async (event) => {
         event.preventDefault();
 
         const fakeUsers = {
@@ -19,40 +19,26 @@ const Signup =  () => {
         console.log(email, 'email');
         console.log(pswd, 'pswd');
 
-        const emailIsvalid = () => {
-            if (!email.includes('@')) {
-                setErrorMsg('invalid email')
-                return
-            }
+
+        if (!email.includes('@')) {
+            setErrorMsg('invalid email')
+            return
         }
-
-        const pswdIsValud = () =>{
-            if (pswd.length === 0 || pswd.length > 30){
-                setErrorMsg('invalid password')
-                return
-            }
+        if (pswd.length === 0 || pswd.length > 30) {
+            setErrorMsg('invalid password')
+            return
         }
-
-        const userExists = ()=>{
-            //check if email is in fake db of users
-            if(!Object.keys(fakeUsers).includes(email)){
-                setErrorMsg('user not found')
-                return
-            }
-            //if email is in fake db check if password matches
-            else if (fakeUsers[email] !== pswd){
-                setErrorMsg('incorrect email or pswd')
-                return
-            }
+        //check if email is in fake db of users
+        if (!Object.keys(fakeUsers).includes(email)) {
+            setErrorMsg('user not found')
+            return
         }
-
-        emailIsvalid();
-        pswdIsValud();
-        userExists();
-
-
-
-       await navigate('/search', {replace: true});
+        //if email is in fake db check if password matches
+        else if (fakeUsers[email] !== pswd) {
+            setErrorMsg('incorrect email or pswd')
+            return
+        }
+        await navigate('/search', { replace: true });
     }
     return (
         <div className='bg-neutral-100 text-slate-700'>

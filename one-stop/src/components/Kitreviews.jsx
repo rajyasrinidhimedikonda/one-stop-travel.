@@ -36,7 +36,7 @@ const Kitreviews = ({id}) => {
             {
             reviews.map( (review)=>(
                 <>
-                <Kitreview title={review.title} body={review.body} />
+                <Kitreview title={review.title} body={review.body} rating={review.rating} />
                 </>
 
             ))

@@ -14,7 +14,7 @@ const Navbar = () => {
   return (
     
 
-    <nav class="bg-lblue3 border-gray-200 px-2 sm:p4-4 py-2.5 rounded w-full fixed z-40 top-0 font-poppins">
+    <nav class="bg-lblue3 border-gray-200 px-2 sm:p4-4 py-2.5  w-full fixed z-40 top-0 font-poppins">
     <div class="container flex flex-wrap  items-center justify-between ">
     <Link to='/search' class="flex h-12">
         <img src={require('../images/air.png')} class="h-20 w-20 pb-5" alt="Flowbite Logo" />

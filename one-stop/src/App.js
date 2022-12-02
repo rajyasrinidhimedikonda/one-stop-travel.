@@ -1,4 +1,4 @@
-import { React, useEffect, useState } from 'react'
+import {  useEffect, useState } from 'react'
 import Search from './components/Search'
 import Signup from './components/Signup'
 import Kitpage from './components/Kitpage'
@@ -11,6 +11,7 @@ import commerce from './lib/commerce';
 import OrderHistory from './components/OrderHistory'
 import Review from './components/Review'
 import Confirmation from './components/Confirmation'
+import CartItems from './components/CartItems'
 
 const App = () => {
 
@@ -51,13 +52,16 @@ const App = () => {
       <CartContext.Provider value={{ cart, setCart, fetchCart, addToCart, removeKitFromCart, updateQty, emptyCart, purchasedItems, setPurchasedItems }}>
         <Routes>
           <Route exact path='/search' element={<Search />} > </Route>
-          <Route exact path='/' element={<Signup />}> </Route>
+          <Route exact path='/signup' element={<Signup />}> </Route>
           <Route exact path='/login' element={<Login />}> </Route>
           <Route exact path='/kit' element={<Kitpage />}> </Route>
           <Route exact path='/checkout' element={<Checkout />}> </Route>
           <Route exact path='/orders' element={<OrderHistory />}> </Route>
           <Route exact path='/review' element={<Review />}> </Route>
           <Route exact path='/confirmation' element={<Confirmation />}> </Route>
+          <Route exact path='/cartitems' element={<CartItems />}> </Route>
+
+
 
         </Routes>
       </CartContext.Provider>

@@ -13,7 +13,7 @@ const Kitpage = () => {
     const location = useLocation();
     const [urls, setUrls] = useState([])
     const data = location.state.kit.obj
-
+    console.log('obj', data);
 
     const geturls = async () => {
         let assets = await data.assets
@@ -22,8 +22,8 @@ const Kitpage = () => {
     }
 
     useEffect(() => {
-        geturls();
-    }, [urls])
+        geturls()
+}, [urls])
     return (
         <>
 
@@ -31,20 +31,20 @@ const Kitpage = () => {
             <Navbar />
             <div class="flex flex-row flex-wrap mt-10 min-h-2/3 ">
                 <div className="  h-3/4 w-3/4 md:w-1/2 mt-20 ">
-                    {/* <Carousel className=''> */}
+                    <Carousel className=' '>
                     {
 
                         urls.map((u) => (
                             <img
                                 src={u.url}
-                                class="object-fill bg-slate-300"
+                                class="  h-80 w-full bg-slate-300"
                                 alt="..." />
 
                         ))
 
                     }
 
-                    {/* </Carousel> */}
+                    </Carousel>
                 </div>
 
                 <div class="flex flex-col mt-20 md:pl-20 pl-10 font-poppins">

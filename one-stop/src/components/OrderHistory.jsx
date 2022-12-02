@@ -10,7 +10,7 @@ const OrderHistory = () => {
   return (
     <>
     <Navbar/>
-    <div className='mt-20 flex flex-col bg-neutral-100 h-screen'>
+    <div className='pt-20 flex flex-col  h-screen'>
         <h1 className='text-4xl font bold text-center'>Your Orders</h1>
         <div className='flex flex-col w-full  justify-center space-y-5 p-5'>
        {
