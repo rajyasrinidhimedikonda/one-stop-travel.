@@ -5,7 +5,6 @@ import Kitreviews from './Kitreviews'
 import { useState, useEffect, useContext } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { CartContext } from '../contexts/CartContext';
-
 import { Carousel } from 'flowbite-react'
 const Kitpage = () => {
 
@@ -22,27 +21,33 @@ const Kitpage = () => {
     }
 
     useEffect(() => {
-        geturls()
-}, [urls])
+        geturls();
+    }, [urls])
     return (
         <>
 
 
             <Navbar />
             <div class="flex flex-row flex-wrap mt-10 min-h-2/3 ">
-                <div className="  h-3/4 w-3/4 md:w-1/2 mt-20 ">
+                <div className="  h-3/4 w-3/4 md:w-1/2 mt-20 h-full">
+
+
                     <Carousel className=' '>
-                    {
+                        {
 
-                        urls.map((u) => (
-                            <img
-                                src={u.url}
-                                class="  h-80 w-full bg-slate-300"
-                                alt="..." />
+                            urls.map((u, i) => {
+                                console.log('u', u);
+                                console.log('i', i);
+                                return(
+                                <img
+                                key={i}
+                                    src={u.url}
+                                    class="  object-contain w-full bg-slate-300"
+                                    alt="..." />
 
-                        ))
+                            )})
 
-                    }
+                        }
 
                     </Carousel>
                 </div>
@@ -67,7 +72,7 @@ const Kitpage = () => {
                     <div class="flex flex-row space-x-5">
 
                         <Link to='/checkout' class="rounded-md w-1/2 h-12 bg-lblue3 hover:bg-lblue2 text-center align-middle pt-3"> Buy Now</Link>
-                        <button class="rounded-md w-1/2 h-12 bg-slate-300 hover:bg-slate-200 " onClick={()=>{
+                        <button class="rounded-md w-1/2 h-12 bg-slate-300 hover:bg-slate-200 " onClick={() => {
                             addToCart(data.id, 1)
                         }}> Add To Cart</button>
                     </div>
